@@ -1,0 +1,20 @@
+http {
+   upstream backend_servers {
+       server backend1.example.com;
+       server backend2.example.com;
+       server backend3.example.com;
+   }
+
+   # Определение зоны для ограничения запросов. Ограничиваем по IP адресу
+   limit_req_zone $binary_remote_addr zone=api_limit:10m rate=10r/m;
+
+   server {
+       listen 80;
+
+       location / {
+           proxy_pass http://backend_servers;
+           limit_req zone=api_limit nodelay;
+           limit_req_status 429;
+       }
+   }
+}
