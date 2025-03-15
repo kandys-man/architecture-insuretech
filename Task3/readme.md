@@ -7,4 +7,4 @@
 
 2.  Нарушен паттерн `source of truth` для сервисов `core-app` и `ins-comp-settlement`, что может привести с рассинхронизации по времени.
 
-[Предлагаемое решение](./InsureTech_C4_сontainer-diagram-to-be.png)
+![Предлагаемое решение](InsureTech_C4_сontainer-diagram-to-be.png)
